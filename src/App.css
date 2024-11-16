@@ -479,6 +479,6 @@ tbody tr:nth-child(odd) {
 
 .google-login-logo {
   margin-top: 10px;
-  height: 43px;
-  width: 43px;
+/*   height: 43px;
+  width: 43px; */
 }
