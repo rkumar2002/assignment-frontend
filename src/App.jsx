@@ -57,7 +57,7 @@ function App() {
           </>
         ) : (
           <div className="login-container">
-            <h2>Please sign in with Google to access the site</h2>
+            <h2 style={{color : "white"}}>Please sign in with Google to access the site</h2>
             <div className="google-login-logo">
               <GoogleLogin
                 onSuccess={handleLoginSuccess}
