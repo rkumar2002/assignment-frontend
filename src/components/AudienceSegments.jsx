@@ -11,6 +11,7 @@ const AudienceSegments = () => {
     // Fetch the audience segments from the backend
     axios.get(`${process.env.REACT_APP_BASE_API_LINK}/audience`)
       .then(response => {
+        console.log('Audience data :', response.data);
         setAudiences(response.data);  // Store the audience data in state
         setLoading(false);
       })
