@@ -1,38 +1,484 @@
-.App {
-  text-align: center;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button , option, select, input{
+  color : black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  background: rgb(26, 25, 25);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  list-style: none;
+}
+
+.nav li a{
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar{
+  padding: 18px;
+  background-color: rgb(102, 159, 79);
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sign-out{
+  position: absolute;
+  right: 10px;
+  bottom: 11px;
+}
+
+.sign-out button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sign-out button:hover {
+  background-color: #c9302c;
+}
+
+
+
+/* Create Audience Page CSS */
+
+.create-audience-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.audience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.condition-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.remove-btn, .add-btn, .submit-btn, .estimate-btn {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+}
+
+.add-btn:hover, .submit-btn:hover, .estimate-btn:hover {
+  background-color: #45a049;
+}
+
+.remove-btn:hover{
+  background: #ce4637 ;
+}
+
+
+.add-btn {
+  margin-top: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.preview-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Audience Segment Page CSS */
+
+/* Overall container */
+.audience-segments-container {
+  padding: 20px;
+  color: white;
+}
+
+/* Title styling */
+.audience-segments-title {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* No segment message */
+.no-segment-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+/* Create Audience button */
+.create-audience-btn {
+  float: right;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: #6a994e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.create-audience-btn:hover {
+  background-color: #87b86b;
+}
+
+/* Audience list wrapper using grid layout */
+.audience-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensure responsive grid */
+  gap: 20px; /* Add spacing between grid items */
+  justify-items: center; /* Center align items horizontally */
+}
+
+/* Individual audience box */
+.audience-box {
+  background-color: #2d2d2d; /* Lighter background to stand out */
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px; /* Ensure the boxes have a max-width */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative; /* For absolute positioning of the button */
+  display: flex;
+  flex-direction: column; /* Allow content to flow vertically */
+  justify-content: space-between; /* Spread content evenly */
+}
+
+/* Audience box hover effect */
+.audience-box:hover {
+  background-color: #3a3a3a;
+}
+
+/* Audience name */
+.audience-name {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Audience conditions and size */
+.audience-conditions, .audience-size {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+/* Initiate Campaign button */
+.initiate-campaign-btn {
+  padding: 10px 15px;
+  background-color: #6a994e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.initiate-campaign-btn:hover {
+  background-color: #79a461;
+}
+
+
+
+/* Create Campaign Page */
+
+/* General container styles */
+.campaign-creation-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-campaign-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Form styles */
+.campaign-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-field, .textarea-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+  color: black;
+}
+
+.input-field:focus, .textarea-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Textarea specific styles */
+.textarea-field {
+  height: 120px;
+  resize: none;
+}
+
+/* Note styling */
+.note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Submit button styles */
+.submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Campaign History Page */
+
+/* Overall Container for Campaign History */
+.campaign-history-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #f5f5f5;
+}
+
+.no-campaigns {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+/* Container for Campaign Cards */
+.campaign-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Individual Campaign Card */
+.campaign-card {
+  background: linear-gradient(145deg, #2e2e2e, #1f1f1f);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 170px;
+  position: relative;
+}
+
+.campaign-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Header (Campaign Title & Date) */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.campaign-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.campaign-date {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Card Body (Campaign Stats) */
+.card-body {
+  flex-grow: 1;
+}
+
+.card-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.card-stats div {
+  margin-right: 15px;
+}
+
+.card-body p {
+  margin: 8px 0;
+  color: #bbb;
+}
+
+/* Card Footer (Status Icon) */
+.card-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+  color: #aaa;
+  transition: color 0.3s ease-in-out;
+}
+
+.status-icon.success {
+  color: #28a745;
+}
+
+.status-icon.error {
+  color: #dc3545;
+}
+
+
+/* Communcation Log page */
+
+/* Style for the table container */
+
+/* Style for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Style for table headers */
+th {
+  padding: 12px;
+  text-align: left;
+  background-color: #555; /* Darker background for the headers */
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid #444; /* Border at the bottom of the header */
+}
+
+/* Style for table data */
+td {
+  padding: 10px;
+  text-align: left;
+  color: #ddd; /* Lighter text color for contrast */
+  border-bottom: 1px solid #444; /* Light border between rows */
+}
+
+/* Hover effect for table rows */
+tr:hover {
+  background-color: #444; /* Slightly lighter hover effect for rows */
+}
+
+/* Style for empty rows or message logs */
+tbody tr:nth-child(even) {
+  background-color: #222; /* Alternating row colors for better readability */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #333;
+}
+
+/* Google Auth CSS */
+.login-container {
+  height : 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.google-login-logo {
+  margin-top: 10px;
+  height: 43px;
+  width: 43px;
 }
