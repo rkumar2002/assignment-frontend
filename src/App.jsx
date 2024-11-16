@@ -15,7 +15,7 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 function App() {
 
   const handleLoginSuccess = (response) => {
-    console.log('Login Success:', response);
+    console.log('Login Success');
   
     // Save the token in localStorage
     localStorage.setItem('googleAuthToken', response.credential);
