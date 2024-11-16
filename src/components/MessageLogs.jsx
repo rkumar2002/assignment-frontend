@@ -36,8 +36,8 @@ function MessageLogs(){
                 break;
             }
         }
-
-        return finalDate;
+        
+        return finalDate+" UTC";
     }
 
     
