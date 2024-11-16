@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CreateAudience() {
   const [name, setName] = useState('');
@@ -7,6 +9,8 @@ function CreateAudience() {
   const [logic, setLogic] = useState('AND'); 
   const [audienceSize, setAudienceSize] = useState(0);
   const [previewSize, setPreviewSize] = useState(0);
+  const [isPreviewSizeCalculated, setIsPreviewSizeCalculated] = useState(false);
+  const [isAudienceSizeCalculated, setIsAudienceSizeCalculated] = useState(false);
 
   const addCondition = () => {
     setConditions([...conditions, { field: 'total_spent', operator: '>', value: 0, unit: '' }]);
@@ -27,7 +31,12 @@ function CreateAudience() {
     try {
       const response = await axios.post(`${process.env.REACT_APP_BASE_API_LINK}/audience/estimate`, { conditions, logic });
       setPreviewSize(response.data.size);
-      alert('Preview size estimated');
+      setIsPreviewSizeCalculated(true);
+      toast.success('Preview size estimated', {
+        position: "top-right",
+        autoClose: 1500, 
+        pauseOnHover: false,
+      });
     } catch (error) {
       console.error('Error estimating audience size:', error);
     }
@@ -38,7 +47,12 @@ function CreateAudience() {
     try {
       const response = await axios.post(`${process.env.REACT_APP_BASE_API_LINK}/audience`, { name, conditions, logic });
       setAudienceSize(response.data.audience.size);
-      alert('Audience created successfully!');
+      setIsAudienceSizeCalculated(true); 
+      toast.success('Audience created successfully!', {
+        position: "top-right",
+        autoClose: 1500, 
+        pauseOnHover: false,
+      });
     } catch (error) {
       console.error('Error creating audience:', error);
     }
@@ -120,8 +134,8 @@ function CreateAudience() {
       </form>
 
       <div className="preview-section">
-        {previewSize > 0 && <div style={{color : "black"}}>Estimated Audience Size: {previewSize}</div>}
-        {audienceSize > 0 && <div style={{color : "black"}}>Audience Size: {audienceSize}</div>}
+        {isPreviewSizeCalculated > 0 && <div style={{color : "black"}}>Estimated Audience Size: {previewSize}</div>}
+        {isAudienceSizeCalculated > 0 && <div style={{color : "black"}}>Audience Size: {audienceSize}</div>}
       </div>
     </div>
   );
