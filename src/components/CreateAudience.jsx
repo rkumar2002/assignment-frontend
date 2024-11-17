@@ -71,7 +71,7 @@ function CreateAudience() {
           <div key={index} className="condition-group">
             <select
               value={condition.field}
-              onChange={(e) => handleConditionChange(index, e.target.value, condition.operator, condition.value, condition.unit)}
+              onChange={(e) => handleConditionChange(index, e.target.value, condition.operator, condition.value)}
             >
               <option value="total_spent">Total Spent</option>
               <option value="visits">Visits</option>
@@ -80,7 +80,7 @@ function CreateAudience() {
 
             <select
               value={condition.operator}
-              onChange={(e) => handleConditionChange(index, condition.field, e.target.value, condition.value, condition.unit)}
+              onChange={(e) => handleConditionChange(index, condition.field, e.target.value, condition.value)}
             >
               <option value=">">Greater Than</option>
               <option value="<">Less Than</option>
@@ -94,7 +94,7 @@ function CreateAudience() {
                 <input
                   type="number"
                   value={condition.value}
-                  onChange={(e) => handleConditionChange(index, condition.field, condition.operator, e.target.value, condition.unit)}
+                  onChange={(e) => handleConditionChange(index, condition.field, condition.operator, e.target.value)}
                 />
                 <input
                   type="text"
@@ -106,7 +106,7 @@ function CreateAudience() {
               <input
                 type="number"
                 value={condition.value}
-                onChange={(e) => handleConditionChange(index, condition.field, condition.operator, e.target.value, condition.unit)}
+                onChange={(e) => handleConditionChange(index, condition.field, condition.operator, e.target.value)}
               />
             )}
 
