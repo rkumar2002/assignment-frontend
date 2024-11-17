@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function CreateAudience() {
   const [name, setName] = useState('');
-  const [conditions, setConditions] = useState([{ field: 'total_spent', operator: '>', value: 0, unit: '' }]);
+  const [conditions, setConditions] = useState([{ field: 'total_spent', operator: '>', value: 0 }]);
   const [logic, setLogic] = useState('AND'); 
   const [audienceSize, setAudienceSize] = useState(0);
   const [previewSize, setPreviewSize] = useState(0);
@@ -13,7 +13,7 @@ function CreateAudience() {
   const [isAudienceSizeCalculated, setIsAudienceSizeCalculated] = useState(false);
 
   const addCondition = () => {
-    setConditions([...conditions, { field: 'total_spent', operator: '>', value: 0, unit: '' }]);
+    setConditions([...conditions, { field: 'total_spent', operator: '>', value: 0 }]);
   };
 
   const removeCondition = (index) => {
@@ -21,9 +21,9 @@ function CreateAudience() {
     setConditions(newConditions);
   };
 
-  const handleConditionChange = (index, field, operator, value, unit) => {
+  const handleConditionChange = (index, field, operator, value) => {
     const newConditions = [...conditions];
-    newConditions[index] = { field, operator, value, unit: field === 'last_visit_date' ? unit : '' };
+    newConditions[index] = { field, operator, value };
     setConditions(newConditions);
   };
 
@@ -96,14 +96,11 @@ function CreateAudience() {
                   value={condition.value}
                   onChange={(e) => handleConditionChange(index, condition.field, condition.operator, e.target.value, condition.unit)}
                 />
-                <select
-                  value={condition.unit}
-                  onChange={(e) => handleConditionChange(index, condition.field, condition.operator, condition.value, e.target.value)}
-                >
-                  <option value="days">Days</option>
-                  <option value="months">Months</option>
-                  <option value="years">Years</option>
-                </select>
+                <input
+                  type="text"
+                  value="Months"
+                  disabled
+                />
               </>
             ) : (
               <input
