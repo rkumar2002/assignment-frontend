@@ -52,8 +52,6 @@ body{
   background-color: #c9302c;
 }
 
-
-
 /* Create Audience Page CSS */
 
 .create-audience-container {
@@ -88,9 +86,16 @@ body{
 
 .condition-group {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping to handle varying input sizes */
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+}
+
+.condition-group select,
+.condition-group input {
+  flex: 1; /* Ensure inputs take up available space */
+  min-width: 100px; /* Set a minimum width to prevent shrinking */
 }
 
 .remove-btn, .add-btn, .submit-btn, .estimate-btn {
@@ -105,6 +110,7 @@ body{
 
 .remove-btn {
   background-color: #e74c3c;
+  flex-shrink: 0; /* Prevent shrinking when container gets smaller */
 }
 
 .add-btn:hover, .submit-btn:hover, .estimate-btn:hover {
@@ -112,9 +118,8 @@ body{
 }
 
 .remove-btn:hover{
-  background: #ce4637 ;
+  background: #ce4637;
 }
-
 
 .add-btn {
   margin-top: 10px;
