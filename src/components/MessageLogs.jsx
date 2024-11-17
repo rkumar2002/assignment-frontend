@@ -55,7 +55,7 @@ function MessageLogs(){
             </thead>
             <tbody>
             {
-                messages.length > 0 ? :
+                messages.length > 0 ?
                 (
                   messages.map(msg => (
                     <tr key={msg.campaignId}>
@@ -67,7 +67,9 @@ function MessageLogs(){
                     </tr>
                 ))
                 ) : (
-                    <div style={{textAlign : "center"}}>No logs to display.</div>
+                    <tr>
+                        <td colSpan="5" style={{ textAlign: "center" }}>No logs to display.</td>
+                    </tr>
                 )
             }
             </tbody>
