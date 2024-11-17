@@ -55,7 +55,9 @@ function MessageLogs(){
             </thead>
             <tbody>
             {
-                messages.map(msg => (
+                messages.length > 0 ? :
+                (
+                  messages.map(msg => (
                     <tr key={msg.campaignId}>
                         <td>{msg.campaignId}</td> 
                         <td>{msg.customerId}</td> 
@@ -64,6 +66,9 @@ function MessageLogs(){
                         <td>{formatDate(msg.sentAt)}</td> 
                     </tr>
                 ))
+                ) : (
+                    <div style={{textAlign : "center"}}>No logs to display.</div>
+                )
             }
             </tbody>
         </table>
