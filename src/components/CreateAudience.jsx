@@ -32,11 +32,11 @@ function CreateAudience() {
       const response = await axios.post(`${process.env.REACT_APP_BASE_API_LINK}/audience/estimate`, { conditions, logic });
       setPreviewSize(response.data.size);
       setIsPreviewSizeCalculated(true);
-      toast.success('Preview size estimated', {
-        position: "top-right",
-        autoClose: 1500, 
-        pauseOnHover: false,
-      });
+      // toast.success('Preview size estimated', {
+      //   position: "top-right",
+      //   autoClose: 1500, 
+      //   pauseOnHover: false,
+      // });
     } catch (error) {
       console.error('Error estimating audience size:', error);
     }
@@ -48,11 +48,11 @@ function CreateAudience() {
       const response = await axios.post(`${process.env.REACT_APP_BASE_API_LINK}/audience`, { name, conditions, logic });
       setAudienceSize(response.data.audience.size);
       setIsAudienceSizeCalculated(true); 
-      toast.success('Audience created successfully!', {
-        position: "top-right",
-        autoClose: 1500, 
-        pauseOnHover: false,
-      });
+      // toast.success('Audience created successfully!', {
+      //   position: "top-right",
+      //   autoClose: 1500, 
+      //   pauseOnHover: false,
+      // });
     } catch (error) {
       console.error('Error creating audience:', error);
     }
