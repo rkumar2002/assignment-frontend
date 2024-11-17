@@ -316,36 +316,6 @@ label {
 
 /* Campaign History Page */
 
-/* Overall Container for Campaign History */
-.campaign-history-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  color: white;
-  border-radius: 10px;
-}
-
-.title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #f5f5f5;
-}
-
-.no-campaigns {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #aaa;
-}
-
-/* Container for Campaign Cards */
-.campaign-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  justify-items: center;
-}
-
 /* Individual Campaign Card */
 .campaign-card {
   background: linear-gradient(145deg, #2e2e2e, #1f1f1f);
@@ -356,8 +326,9 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 170px;
+  min-height: 170px; /* Ensure card grows with content */
   position: relative;
+  word-wrap: break-word; /* Prevent text overflow */
 }
 
 .campaign-card:hover {
@@ -369,19 +340,23 @@ label {
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* Align to the top to prevent pushing content down */
   margin-bottom: 10px;
+  flex-wrap: wrap; /* Allow title to wrap onto the next line if needed */
 }
 
 .campaign-name {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
+  margin: 0; /* Ensure there's no margin pushing it down */
+  flex: 1 1 auto; /* Allow title to take more space if needed */
 }
 
 .campaign-date {
   font-size: 1rem;
   color: #ccc;
+  margin-top: 5px; /* Space between date and title when title wraps */
 }
 
 /* Card Body (Campaign Stats) */
