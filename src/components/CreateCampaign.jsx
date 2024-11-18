@@ -31,7 +31,6 @@ const CreateCampaign = () => {
       const response = await axios.post(`${process.env.REACT_APP_BASE_API_LINK}/campaign`, campaignData);
       console.log(response);
 
-      // Display success toast
       toast.success('Campaign Created!', {
         position: "top-right",
         autoClose: 3000,  
@@ -43,8 +42,7 @@ const CreateCampaign = () => {
 
     } catch (error) {
       console.error('Error creating campaign:', error);
-
-      // Display error toast
+      
       toast.error('Campaign could not be created!', {
         position: "top-right",
         autoClose: 3000,
