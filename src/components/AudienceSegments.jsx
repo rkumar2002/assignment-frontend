@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate
+import { useNavigate } from 'react-router-dom';  
 
 const AudienceSegments = () => {
   const [audiences, setAudiences] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();  // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     // Fetch the audience segments from the backend
