@@ -63,6 +63,7 @@ function App() {
                 onSuccess={handleLoginSuccess}
                 onError={handleLoginFailure}
               />
+              <p style={{color : "grey", fontStyle : "italic", fontSize : "8px"}}>If inactive after login, please refresh. This may occur due to the free cloud backend.</p>
             </div>
           </div>
         )}
